@@ -1,0 +1,7 @@
+.idea
+target
+*.iml
+
+src/main/resources/lucene/lia2e
+src/main/resources/lucene/demo/index/
+
