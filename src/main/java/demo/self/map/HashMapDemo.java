@@ -18,12 +18,16 @@ public class HashMapDemo {
 
 
     private void mapPut() {
-        Map<Integer, String> map = null;
+        Map<String, String> map = null;
 
         // 初始化大小设置为 3，按照HashMap的计算方式 threshold 为 4
         map = new HashMap<>(3);
-        for (int count=1; count < 4; count++) {
-            map.put(count, "Value-"+count);
+        for (int count=1; count <= 5; count++) {
+            if (5 == count) {
+                map.put("Key-" + count, "Value-" + count);
+            } else {
+                map.put("Key-" + count, "Value-" + count);
+            }
         }
 
 
