@@ -81,10 +81,56 @@ public class IndexTest extends TestCase {
 
         assertEquals(ids.length, writer.numDocs());
 
-
         writer.close();
     }
 
+    public void testDeleteBeforeOptimize() throws IOException {
+        index();
+
+        IndexWriter writer = getWriter();
+
+        assertEquals(2, writer.numDocs());
+        writer.deleteDocuments(new Term("id", "1"));
+        writer.commit();
+//        assertTrue(writer.hasDeletions());
+        assertEquals(2, writer.maxDoc());
+        assertEquals(1, writer.numDocs());
+        writer.close();
+    }
+
+
+
+    private void index() throws IOException {
+        IndexWriter writer = getWriter();
+        for (int i=0; i<ids.length; i++) {
+            Document document = new Document();
+            FieldType idField = new FieldType();
+            idField.setStored(true);
+            idField.setIndexOptions(IndexOptions.NONE);
+            document.add(new Field("id", ids[i], idField));
+
+            FieldType countryField = new FieldType();
+            countryField.setStored(true);
+            countryField.setIndexOptions(IndexOptions.NONE);
+            document.add(new Field("country", unindexed[i], countryField));
+
+            FieldType contentField = new FieldType();
+            contentField.setStored(false);
+            contentField.setIndexOptions(IndexOptions.DOCS_AND_FREQS_AND_POSITIONS_AND_OFFSETS);
+            document.add(new Field("content", unstored[i], contentField));
+
+            FieldType cityField = new FieldType();
+            cityField.setStored(true);
+            cityField.setIndexOptions(IndexOptions.DOCS_AND_FREQS_AND_POSITIONS_AND_OFFSETS);
+            document.add(new Field("city", text[i], cityField));
+
+            writer.addDocument(document);
+        }
+
+        assertEquals(ids.length, writer.numDocs());
+
+        writer.close();
+    }
 
 
 
