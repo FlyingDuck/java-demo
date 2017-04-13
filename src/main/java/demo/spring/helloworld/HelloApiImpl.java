@@ -6,7 +6,7 @@ package demo.spring.helloworld;
  * Mail: dongshujin.beans@gmail.com <br> <br>
  * Desc:
  */
-public class HelloImpl implements HelloApi {
+public class HelloApiImpl implements HelloApi {
 
     @Override
     public void sayHello() {

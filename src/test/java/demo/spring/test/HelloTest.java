@@ -1,4 +1,4 @@
-package spring.test;
+package demo.spring.test;
 
 import demo.spring.helloworld.HelloApi;
 import org.junit.Test;
@@ -17,7 +17,7 @@ public class HelloTest {
     public void testHelloWorld() {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring/applicationcontext.xml");
 
-        HelloApi helloApi = context.getBean("hello", HelloApi.class);
+        HelloApi helloApi = context.getBean("helloApi", HelloApi.class);
 
         helloApi.sayHello();
     }
