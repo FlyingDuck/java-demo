@@ -1,8 +1,10 @@
-package demo.lucene.test;
+package demo;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by dongsj on 17/3/5.
@@ -79,6 +81,23 @@ public class BaseTest {
         n |= n >>> 8;
         n |= n >>> 16;
         return (n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
+    }
+
+    public void addItem(List<String> items) {
+//        items.add("SomeThing");
+        List<String> newItems = new ArrayList<String>();
+        newItems.addAll(items);
+        newItems.add("SomeThing");
+        items = newItems;
+    }
+
+    @Test
+    public void testAdd() {
+        List<String> items = new ArrayList<String>();
+        items.add("OneThing");
+        System.out.println("Size: " + items.size());
+        addItem(items);
+        System.out.println("Size: " + items.size());
     }
 
 
