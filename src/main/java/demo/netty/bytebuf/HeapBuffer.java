@@ -12,8 +12,6 @@ import java.nio.charset.Charset;
 public class HeapBuffer {
 
     public static void main(String[] args) {
-//        ByteBuf directBuf = ByteBufAllocator.DEFAULT.directBuffer();
-//        directBuf.writeBytes("Netty IO".getBytes());
         ByteBuf heapBuf = Unpooled.copiedBuffer("Netty IO", Charset.forName("UTF-8"));
         if (heapBuf.hasArray()) {
             System.out.println("Has Array");
