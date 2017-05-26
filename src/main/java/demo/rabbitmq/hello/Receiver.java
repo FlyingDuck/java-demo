@@ -1,6 +1,7 @@
-package demo.rabbitmq;
+package demo.rabbitmq.hello;
 
 import com.rabbitmq.client.*;
+import demo.rabbitmq.SimpleChannelFactory;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
@@ -12,13 +13,8 @@ public class Receiver {
     private static final String QUEUE_NAME = "hello";
 
     public static void main(String[] args) throws IOException, TimeoutException {
-        ConnectionFactory connectionFactory = new ConnectionFactory();
-        connectionFactory.setHost("10.236.141.14");
-        Connection connection = connectionFactory.newConnection();
-        Channel channel = connection.createChannel();
 
-
-        channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+        Channel channel = SimpleChannelFactory.getChannel("hello");
 
         System.out.println(" [C] Waiting for messages. To exit press CTRL+C");
 
