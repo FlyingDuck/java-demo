@@ -6,7 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * Created by Bennett Dong <br>
  * Date : 2017/10/25 <br>
  * Mail: dongshujin.beans@gmail.com <br> <br>
- * Desc:
+ * Desc: 交替锁
  */
 public class ConcurrentSortedList {  // 降序有序链表
 
