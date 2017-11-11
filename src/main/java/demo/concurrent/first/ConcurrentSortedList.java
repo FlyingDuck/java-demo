@@ -1,4 +1,4 @@
-package demo.concurrent;
+package demo.concurrent.first;
 
 import java.util.concurrent.locks.ReentrantLock;
 
