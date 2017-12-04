@@ -100,5 +100,11 @@ public class BaseTest {
         System.out.println("Size: " + items.size());
     }
 
+    @Test
+    public void testInt() {
+        int i = 1_00;
+        System.out.println("i="+i);
+    }
+
 
 }

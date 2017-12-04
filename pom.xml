@@ -83,6 +83,36 @@
             <version>3.3.7</version>
         </dependency>
 
+        <!--Quasar-->
+        <dependency>
+            <groupId>co.paralleluniverse</groupId>
+            <artifactId>quasar-core</artifactId>
+            <version>0.7.9</version>
+        </dependency>
+        <dependency>
+            <groupId>co.paralleluniverse</groupId>
+            <artifactId>quasar-actors</artifactId>
+            <version>0.7.9</version>
+        </dependency>
+        <!--co.paralleluniverse:quasar-galaxy:0.7.9
+        <dependency>
+            <groupId>co.pralleluniverse</groupId>
+            <artifactId>quasar-galaxy</artifactId>
+            <version>0.7.9</version>
+        </dependency>-->
+        <dependency>
+            <groupId>co.paralleluniverse</groupId>
+            <artifactId>quasar-reactive-streams</artifactId>
+            <version>0.7.9</version>
+        </dependency>
+        <dependency>
+            <groupId>co.paralleluniverse</groupId>
+            <artifactId>quasar-disruptor</artifactId>
+            <version>0.7.9</version>
+        </dependency>
+
+
+
 
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
