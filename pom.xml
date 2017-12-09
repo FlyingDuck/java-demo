@@ -38,9 +38,7 @@
             <version>1.0</version>
         </dependency> -->
 
-
-
-        <!-- https://mvnrepository.com/artifact/cglib/cglib -->
+        <!--cglib-->
         <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib</artifactId>
@@ -48,14 +46,14 @@
         </dependency>
 
 
-        <!-- https://mvnrepository.com/artifact/org.apache.lucene/lucene-core -->
+        <!--lucene-core-->
         <dependency>
             <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-core</artifactId>
             <version>6.4.1</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.apache.lucene/lucene-demos -->
+        <!--lucene-demo-->
         <dependency>
             <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-demos</artifactId>
@@ -63,13 +61,14 @@
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.rabbitmq/amqp-client -->
+        <!--rabbitmq-->
         <dependency>
             <groupId>com.rabbitmq</groupId>
             <artifactId>amqp-client</artifactId>
             <version>4.1.0</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+        <!--netty-->
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
@@ -110,6 +109,15 @@
             <artifactId>quasar-disruptor</artifactId>
             <version>0.7.9</version>
         </dependency>
+
+
+        <!--hystrix-->
+        <dependency>
+            <groupId>com.netflix.hystrix</groupId>
+            <artifactId>hystrix-core</artifactId>
+            <version>1.5.12</version>
+        </dependency>
+
 
 
 
@@ -226,7 +234,7 @@
                             <useUniqueVersions>false</useUniqueVersions>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>demo.Main</mainClass>
+                            <mainClass>demo.FiberMain</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

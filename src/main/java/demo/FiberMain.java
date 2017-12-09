@@ -12,7 +12,7 @@ import java.util.concurrent.*;
  * Created by dongsj on 17/3/4.
  *
  */
-public class Main {
+public class FiberMain {
 
     public static void main(String[] args) {
         FiberScheduler fiberScheduler = new FiberForkJoinScheduler("ForkJoin", 4, null, false);
