@@ -44,11 +44,11 @@ public class IndexTest extends TestCase {
         return new IndexWriter(directory, new IndexWriterConfig(new StandardAnalyzer()));
     }
 
-    protected int getHitCount(String fieldname, String searchString) throws IOException {
+    protected long getHitCount(String fieldname, String searchString) throws IOException {
         IndexSearcher searcher = new IndexSearcher(DirectoryReader.open(directory));
         Term term = new Term(fieldname, searchString);
         Query query = new TermQuery(term);
-        int hitCount = searcher.search(query, 1).totalHits;
+        long hitCount = searcher.search(query, 1).totalHits;
         return hitCount;
     }
 

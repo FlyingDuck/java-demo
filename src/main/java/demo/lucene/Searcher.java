@@ -1,11 +1,16 @@
 package demo.lucene;
 
+import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.Term;
+import org.apache.lucene.queryparser.classic.ParseException;
+import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.*;
+import org.apache.lucene.search.spans.SpanBoostQuery;
+import org.apache.lucene.search.spans.SpanOrQuery;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 
@@ -17,13 +22,15 @@ import java.nio.file.Paths;
  */
 public class Searcher {
 
-    public static void search(String indexDir, String q) throws IOException {
+    public static void search(String indexDir, String q) throws IOException, ParseException {
         Directory dir = FSDirectory.open(Paths.get(indexDir));
-        DirectoryReader reader = DirectoryReader.open(dir);
-        IndexSearcher searcher = new IndexSearcher(reader);
+//        DirectoryReader reader = DirectoryReader.open(dir);
+        IndexReader indexReader = DirectoryReader.open(dir);
+        IndexSearcher searcher = new IndexSearcher(indexReader);
+        Analyzer analyzer = new StandardAnalyzer();
 
-        Query query = new TermQuery(new Term("contents", q));
-        new StandardAnalyzer();
+        QueryParser parser = new QueryParser("url", analyzer);
+        Query query = parser.parse(q);
 
         long start = System.currentTimeMillis();
         TopDocs hits = searcher.search(query, 10);
@@ -32,15 +39,15 @@ public class Searcher {
 
         for (ScoreDoc scoreDoc : hits.scoreDocs) {
             Document doc = searcher.doc(scoreDoc.doc);
-            System.out.println(doc.get("fullpath"));
+            System.out.println(doc.toString());
         }
 
     }
 
 
-    public static void main(String[] args) throws IOException {
-        String indexDir = "/Users/dongsj/workspace/dsj/javaSpace/javaDemo/src/main/resources/lucene/demo/index";
-        String q = "lucene";
+    public static void main(String[] args) throws IOException, ParseException {
+        String indexDir = "/Users/dongsj/workspace/dsj/javaSpace/javaDemo/src/main/resources/lucene/example/domain.index";
+        String q = "google";
 
         search(indexDir, q);
     }
