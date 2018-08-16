@@ -1,5 +1,6 @@
 package demo;
 
+import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -104,6 +105,20 @@ public class BaseTest {
     public void testInt() {
         int i = 1_00;
         System.out.println("i="+i);
+    }
+
+    @Test
+    public void testTruncateText() {
+        String text = "How Airbnb changed a writer's feelings on travel https://t.co/d8ZPZUUkAn";
+        int start = StringUtils.lastIndexOf(text, "https://t.co");
+        System.out.println(start);
+
+        String detailPage = StringUtils.substring(text, start, text.length()-1);
+        System.out.println(detailPage);
+
+        String truncatedText = StringUtils.substring(text, 0, start);
+        System.out.println(truncatedText);
+
     }
 
 
